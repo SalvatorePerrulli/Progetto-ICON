@@ -14,6 +14,7 @@ Ovviamente, l'agente AI deve imparare a evitare di guidare nelle posizioni di st
 L'ultima componente dell'ambiente che dobbiamo definire sono le ricompense. Per aiutare l'agente AI ad apprendere, a ogni stato (posizione) nel magazzino viene assegnato un valore di ricompensa. L'agente può iniziare da qualsiasi quadrato bianco, ma il suo obiettivo è sempre lo stesso: massimizzare le sue ricompense totali.
 Le ricompense negative (cioè le punizioni) vengono utilizzate per tutti gli stati tranne l'obiettivo. Questo incoraggia l'IA a identificare il percorso più breve verso l'obiettivo riducendo al minimo le sue punizioni.
 ![](https://github.com/SalvatorePerrulli/Progetto-ICON/blob/main/08-warehouse-map-rewards.png)
+
 Per massimizzare i suoi premi cumulativi (riducendo al minimo le sue punizioni cumulative), l'agente AI dovrà trovare i percorsi più brevi tra l'area di imballaggio dell'articolo (quadrato verde) e tutte le altre posizioni nel magazzino dove il robot è autorizzato a viaggiare (quadrati bianchi). L'agente dovrà anche imparare a evitare di schiantarsi contro le posizioni di deposito degli oggetti (quadrati neri).
 ##  1.5 Addestramento
 Il nostro prossimo compito è che il nostro agente AI apprenda il suo ambiente implementando un modello di Q-learning. Il processo di apprendimento seguirà questi passaggi:
@@ -37,10 +38,10 @@ Il quale coinvolge un agente ai che opera in modo casuale nell’ambiente impara
 ## 2.1 Q-Value
 Il Q-value e' la qualita' di una azione per un particolare stato. Il Q-Value ottimale per la coppia stato-azione (s,a), indicato come Q*(s,a) è la somma delle future ricompense scontate, rappresentano una stima delle somme di futuri guadagni se dovessimo intraprendere una particolare azione in uno stato specifico, i valori stimano la quantità di ricompensa aggiuntiva che possiamo aspettarci di accumulare attraverso tutti i passaggi rimanenti negli episodi correnti se l’agente ai e attualmente nello stato s e prende azione a.
 E il Q-values, pertanto, aumenta man mano che l'agente ai si avvicina sempre più alla ricompensa più alta e quindi una volta ottenuti Q-values ottimale, definire la policy ottimale e’ banale cioè quando si trova nello stato s basterà scegliere il Q-Values più alto per lo stato corrente: π* (s) = argmax (a) Q*(s, a) .![](https://github.com/SalvatorePerrulli/Progetto-ICON/blob/main/qvalues.PNG)
+
 Si può dedurre che il Q-values e ‘una matrice tridimensionale data dallo stato (colonne e righe dell’ambiente) e dall’azione (up, down, right, left). E quindi nel nostro caso 11x11x4.
 Il ruolo della Temporal Difference Learning è fondamentale permette di assicurare la convergenza dell’algoritmo, calcolando per ogni stato s una media mobile (running average) delle ricompense immediatamente ottenute lasciando lo stato.
 ## 2.2 Q-Table
 Q-values sono memorizzati in Q-table dove la riga indica un possibile stato e la colonna una possibile azione.![](https://github.com/SalvatorePerrulli/Progetto-ICON/blob/main/qtable.PNG)
+
 Un ottimale q table corrisponde a q-values ottimali, cioè contiene i valori che permettono all’agente di ai di prendere la migliore azioni in ogni possibile stato permettendo di percorrere il miglior percorso per il guadagno più alto. E quindi la q table rappresenta la policy dell’agente di ai per muoversi nell’ambiente.
-
-
