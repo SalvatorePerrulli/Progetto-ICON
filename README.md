@@ -19,21 +19,29 @@ Per massimizzare i suoi premi cumulativi (riducendo al minimo le sue punizioni c
 ##  1.5 Addestramento
 Il nostro prossimo compito è che il nostro agente AI apprenda il suo ambiente implementando un modello di Q-learning. Il processo di apprendimento seguirà questi passaggi:
 1. Scegli uno stato casuale, non terminale (quadrato bianco) per l'agente per iniziare questo nuovo episodio.
+
 2. Scegli un'azione (sposta in alto, a destra, in basso o a sinistra) per lo stato corrente. Le azioni verranno scelte utilizzando un algoritmo _epsilon greedy_. Questo algoritmo solitamente sceglierà l'azione più promettente per l'agente AI, ma a volte sceglierà un'opzione meno promettente per incoraggiare l'agente a esplorare l'ambiente.
+
 3. Esegui l'azione scelta e passa allo stato successivo (ovvero passa alla posizione successiva).
+
 4. Ricevi la ricompensa per il passaggio al nuovo stato e calcola la differenza temporale.
+
 5. Aggiorna il valore Q per la coppia di stato e azione precedente.
+
 6. Se il nuovo stato (corrente) è uno stato terminale, vai al n. 1. Altrimenti, vai al n. 2.
+
 
 L'intero processo verrà ripetuto in 1000 episodi. Ciò fornirà all'agente AI un'opportunità sufficiente per apprendere i percorsi più brevi tra l'area di imballaggio degli articoli e tutte le altre posizioni nel magazzino in cui il robot può viaggiare, evitando allo stesso tempo di schiantarsi in qualsiasi posizione di stoccaggio degli articoli.
 ##  1. 6 Ottieni percorsi più brevi
 Ora che l'agente AI è stato completamente addestrato, possiamo vedere cosa ha imparato visualizzando il percorso più breve tra qualsiasi posizione nel magazzino in cui il robot può viaggiare e l'area di imballaggio degli articoli.
 
 #  2 Q-learning
-E' un paradigma di machine learning noto per l’apprendimento tramite rinforzo.
-Il quale coinvolge un agente ai che opera in modo casuale nell’ambiente imparando una policy ottimale tramite osservazione, utilizzando stati e ricompense come input e le azioni come l’output sono conosciuti come model-free cioè l’agente ai non ha come obiettivo di conoscere un modello matematico o una distribuzione di probabilità come per il campionamento di Thompson, ma tenta di costruire una policy ottimale interagendo con l’ambiente dell’agente ai. Usa un approccio trial-and-error-based approach aggiornando la sua policy per ogni tentativo ed errore. Cioè tramite ricompense negative e positive l‘agente cerca di ridurre le punizioni totali(ricompense negative) e quindi la loro capacita di apprendimento sta nel rinforzo(sia positivo che negativo).
-È importante specificare:  
+E' un paradigma di machine learning noto per **l’apprendimento tramite rinforzo**.
+Il quale coinvolge un agente ai che opera in modo casuale nell’ambiente imparando una policy ottimale tramite osservazione, utilizzando stati e ricompense come input e le azioni come l’output sono conosciuti come model-free cioè l’agente ai non ha come obiettivo di conoscere un modello matematico o una distribuzione di probabilità come per il campionamento di Thompson, ma tenta di **costruire una policy ottimale interagendo con l’ambiente dell’agente ai**. Usa un approccio trial-and-error-based approach aggiornando la sua policy per ogni tentativo ed errore. Cioè tramite ricompense negative e positive(rewards) l‘agente cerca di ridurre le punizioni totali(ricompense negative) e quindi la loro capacita di apprendimento sta nel seguire un percorso con un maggiore gudagno possibile.
+È importante specificare: 
+ 
 1. Il numero di stati possibili (deve essere finito)
+
 2. Il numero possibili di azioni (deve essere finito)
 ## 2.1 Q-Value
 Il Q-value e' la qualita' di una azione per un particolare stato. Il Q-Value ottimale per la coppia stato-azione (s,a), indicato come Q*(s,a) è la somma delle future ricompense scontate, rappresentano una stima delle somme di futuri guadagni se dovessimo intraprendere una particolare azione in uno stato specifico, i valori stimano la quantità di ricompensa aggiuntiva che possiamo aspettarci di accumulare attraverso tutti i passaggi rimanenti negli episodi correnti se l’agente ai e attualmente nello stato s e prende azione a.
@@ -45,3 +53,5 @@ Il ruolo della Temporal Difference Learning è fondamentale permette di assicura
 Q-values sono memorizzati in Q-table dove la riga indica un possibile stato e la colonna una possibile azione.![](https://github.com/SalvatorePerrulli/Progetto-ICON/blob/main/qtable.PNG)
 
 Un ottimale q table corrisponde a q-values ottimali, cioè contiene i valori che permettono all’agente di ai di prendere la migliore azioni in ogni possibile stato permettendo di percorrere il miglior percorso per il guadagno più alto. E quindi la q table rappresenta la policy dell’agente di ai per muoversi nell’ambiente.
+
+
