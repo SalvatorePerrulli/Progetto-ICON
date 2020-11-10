@@ -23,6 +23,7 @@ Il nostro prossimo compito è che il nostro agente AI apprenda il suo ambiente i
 4. Ricevi la ricompensa per il passaggio al nuovo stato e calcola la differenza temporale.
 5. Aggiorna il valore Q per la coppia di stato e azione precedente.
 6. Se il nuovo stato (corrente) è uno stato terminale, vai al n. 1. Altrimenti, vai al n. 2.
+
 L'intero processo verrà ripetuto in 1000 episodi. Ciò fornirà all'agente AI un'opportunità sufficiente per apprendere i percorsi più brevi tra l'area di imballaggio degli articoli e tutte le altre posizioni nel magazzino in cui il robot può viaggiare, evitando allo stesso tempo di schiantarsi in qualsiasi posizione di stoccaggio degli articoli.
 ##  1. 6 Ottieni percorsi più brevi
 Ora che l'agente AI è stato completamente addestrato, possiamo vedere cosa ha imparato visualizzando il percorso più breve tra qualsiasi posizione nel magazzino in cui il robot può viaggiare e l'area di imballaggio degli articoli.
