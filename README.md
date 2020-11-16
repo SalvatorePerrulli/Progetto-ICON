@@ -37,7 +37,7 @@ Ora che l'agente AI è stato completamente addestrato, possiamo vedere cosa ha i
 
 #  2 Q-learning
 E' un paradigma di machine learning noto per **l’apprendimento tramite rinforzo**.
-Il quale coinvolge un agente ai che opera in modo casuale nell’ambiente imparando una policy ottimale tramite osservazione, utilizzando stati e ricompense come input e le azioni come l’output sono conosciuti come model-free cioè l’agente ai non ha come obiettivo di conoscere un modello matematico o una distribuzione di probabilità come per il campionamento di Thompson, ma tenta di **costruire una policy ottimale interagendo con l’ambiente dell’agente ai**. Usa un approccio trial-and-error-based approach aggiornando la sua policy per ogni tentativo ed errore. Cioè tramite ricompense negative e positive(rewards) l‘agente cerca di ridurre le punizioni totali(ricompense negative) e quindi la loro capacita di apprendimento sta nel seguire un percorso con un maggiore gudagno possibile.
+Il quale coinvolge un agente ai che opera in modo casuale nell’ambiente imparando una policy ottimale tramite osservazione, utilizzando stati e ricompense come input e le azioni come l’output sono conosciuti come model-free cioè l’agente ai non ha come obiettivo di conoscere un modello matematico, ma tenta di **costruire una policy ottimale interagendo con l’ambiente dell’agente ai**. Usa un approccio trial-and-error-based approach aggiornando la sua policy per ogni tentativo ed errore. Cioè tramite ricompense negative e positive(rewards) l‘agente cerca di ridurre le punizioni totali(ricompense negative) e quindi la loro capacita di apprendimento sta nel seguire un percorso con un maggiore gudagno possibile.
 È importante specificare: 
  
 1. Il numero di stati possibili (deve essere finito)
